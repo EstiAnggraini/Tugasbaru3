@@ -212,6 +212,20 @@ Constructor</b> merupakan metode khusus yang dipanggil secara otomatis saat obje
 Constructor berfungsi untuk melakukan inisialisasi nilai awal attribute sehingga objek langsung berada dalam kondisi valid dan siap digunakan. 
 Dalam bahasa Dart, constructor dapat menggunakan formal parameter (<i>this.attribute</i>) untuk menyederhanakan penulisan kode.
 </p>
+  <div class="card">
+    <pre>
+      class Car {
+  String? model;
+  String? color;
+
+  Car(this.model, this.color);
+
+  void start() {
+    print('Car started!');
+  }
+}
+    </pre>
+  </div>
 <button class="btn" onclick="openModal('c643bd946a0cb132d2b9c2ff04ff2dea')">
 Lihat Kode
 </button>
@@ -234,7 +248,21 @@ Hal ini bertujuan menjaga konsistensi dan integritas data akademik.
 Dengan menerapkan validasi pada constructor, kita memastikan bahwa setiap object yang dibuat sudah memenuhi aturan bisnis (business rule) sejak awal. 
 Pendekatan ini mengurangi kemungkinan terjadinya error pada proses eksekusi program di tahap berikutnya.
 </p> </p>
+    <div class="card">
+      <pre>
+        class Mahasiswa {
+  String nama;
+  String nim;
+  double ipk;
 
+  Mahasiswa(this.nama, this.nim, this.ipk) {
+    if (ipk < 0.0 || ipk > 4.0) {
+      throw ArgumentError('IPK harus berada dalam rentang 0.0 - 4.0');
+    }
+  }
+}
+      </pre>
+    </div>
 <button class="btn" onclick="openModal('e4a3bca58621dd594f6a47ebeaad3708')">
   Lihat Kode
 </div>
@@ -246,6 +274,24 @@ Encapsulation adalah teknik untuk menyembunyikan detail implementasi internal. D
 Dengan membatasi akses melalui mekanisme getter dan setter, integritas data dapat dijaga dan kesalahan manipulasi dapat diminimalisir. 
 Encapsulation meningkatkan keamanan serta stabilitas sistem dalam skala besar.
 </p>
+  <div class="card">
+    <pre>
+      class Person {
+  String _name;
+  int age;
+
+  Person(this._name, this.age);
+
+  void setName(String name) {
+    _name = name;
+  }
+
+  String getName() {
+    return _name;
+  }
+}
+    </pre>
+  </div>
 <button class="btn" onclick="openModal('3faaa8a620bf28262ac5157a1c402ee4')">
   Lihat Kode
 </div>
@@ -258,6 +304,25 @@ Selain itu, Dart juga mendukung penggunaan <b>Named Parameter</b>, yaitu teknik 
 Penggunaan keyword <b>required</b> memastikan bahwa parameter penting tidak boleh kosong saat proses instansiasi objek dilakukan. 
 Pendekatan ini meningkatkan kejelasan kode (readability) dan mengurangi potensi kesalahan input.
 </p>
+  <div class="card">
+    <pre>
+      class Produk {
+  final String id;
+  final String nama;
+  final double harga;
+  final int stok;
+  final String kategori;
+
+  Produk({
+    required this.id,
+    required this.nama,
+    required this.harga,
+    this.stok = 0,
+    this.kategori = 'Umum',
+  });
+}
+    </pre>
+  </div>
 <button class="btn" onclick="openModal('3fec650a8cd7c8e423ab48107c074e43')">
   Lihat Kode
 </div>
