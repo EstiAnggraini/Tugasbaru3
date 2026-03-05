@@ -268,8 +268,8 @@ Pendekatan ini mengurangi kemungkinan terjadinya error pada proses eksekusi prog
   double ipk;
 
   Mahasiswa(this.nama, this.nim, this.ipk) {
-    if (ipk < 0.0 || ipk > 4.0) {
-      throw ArgumentError('IPK harus berada dalam rentang 0.0 - 4.0');
+  if (ipk < 0.0 || ipk > 4.0) {
+  throw ArgumentError('IPK harus berada dalam rentang 0.0 - 4.0');
     }
   }
 }
