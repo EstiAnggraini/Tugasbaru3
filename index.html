@@ -1,416 +1,370 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Laporan OOP Dart</title>
-
-<style>
-body{
-  font-family: 'Segoe UI', Arial, sans-serif;
-  margin:0;
-  padding:40px 20px;
-  background: linear-gradient(to right, #ffc0cb, #ff69b4);
-  line-height:1.6;
-  color:#1e293b;
-}
-
-.container{
-  max-width:1000px;
-  margin:auto;
-}
-
-h1{
-  text-align:center;
-  margin-bottom:10px;
-}
-
-h2{
-  margin-top:40px;
-  border-left:5px solid #2563eb;
-  padding-left:10px;
-}
-
-p{
-  margin-bottom:15px;
-}
-
-.card{
-  background:white;
-  padding:25px;
-  border-radius:12px;
-  box-shadow:0 8px 20px rgba(0,0,0,0.08);
-  transition:0.3s;
-}
-
-.card:hover{
-  transform:translateY(-3px);
-  box-shadow:0 12px 25px rgba(0,0,0,0.12);
-}
-
-iframe{
-  width:100%;
-  height:500px;
-  border:none;
-  border-radius:10px;
-  margin-top:15px;
-}
-
-hr{
-  margin:50px 0;
-  border:none;
-  height:1px;
-  background:#cbd5e1;
-}
-
-footer{
-  margin-top:60px;
-  padding-top:20px;
-  border-top:1px solid #cbd5e1;
-  font-size:14px;
-  text-align:center;
-  color:#475569;
-}
-
-/* BUTTON */
-.btn{
-  display:inline-block;
-  margin-top:15px;
-  padding:10px 18px;
-  background:#2563eb;
-  color:white;
-  border:none;
-  border-radius:8px;
-  cursor:pointer;
-  font-weight:500;
-  transition:0.3s;
-}
-
-.btn:hover{
-  background:#1e40af;
-}
-
-/* MODAL */
-.modal{
-  display:none;
-  position:fixed;
-  z-index:1000;
-  left:0;
-  top:0;
-  width:100%;
-  height:100%;
-  background:rgba(0,0,0,0.6);
-}
-
-.modal-content{
-  position:relative;
-  background:white;
-  width:90%;
-  max-width:900px;
-  margin:5% auto;
-  padding:20px;
-  border-radius:12px;
-  animation:fadeIn 0.3s ease;
-}
-
-.modal iframe{
-  width:100%;
-  height:500px;
-  border:none;
-  border-radius:10px;
-}
-
-.close{
-  position:absolute;
-  right:15px;
-  top:10px;
-  font-size:22px;
-  cursor:pointer;
-  font-weight:bold;
-}
-
-@keyframes fadeIn{
-  from{opacity:0; transform:translateY(-20px);}
-  to{opacity:1; transform:translateY(0);}
-}
-  
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laporan OOP Dart</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            margin: 0;
+            padding: 40px 20px;
+            background: linear-gradient(to right, #ffc0cb, #ff69b4);
+            line-height: 1.6;
+            color: #1e293b;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: auto;
+        }
+        
+        h1 {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        
+        h2 {
+            margin-top: 40px;
+            border-left: 5px solid #2563eb;
+            padding-left: 10px;
+        }
+        
+        p {
+            margin-bottom: 15px;
+        }
+        
+        .card {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+            transition: 0.3s;
+            margin-bottom: 20px;
+        }
+        
+        .card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 25px rgba(0,0,0,0.12);
+        }
+        
+        iframe {
+            width: 100%;
+            height: 500px;
+            border: none;
+            border-radius: 10px;
+            margin-top: 15px;
+        }
+        
+        hr {
+            margin: 50px 0;
+            border: none;
+            height: 1px;
+            background: #cbd5e1;
+        }
+        
+        footer {
+            margin-top: 60px;
+            padding-top: 20px;
+            border-top: 1px solid #cbd5e1;
+            font-size: 14px;
+            text-align: center;
+            color: #475569;
+        }
+        
+        .btn {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 10px 18px;
+            background: #2563eb;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+        
+        .btn:hover {
+            background: #1e40af;
+        }
+        
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.6);
+        }
+        
+        .modal-content {
+            position: relative;
+            background: white;
+            width: 90%;
+            max-width: 900px;
+            margin: 5% auto;
+            padding: 20px;
+            border-radius: 12px;
+            animation: fadeIn 0.3s ease;
+        }
+        
+        .close {
+            position: absolute;
+            right: 15px;
+            top: 10px;
+            font-size: 22px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        
+        pre {
+            background: #f1f5f9;
+            padding: 15px;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
 </head>
-
 <body>
-
-<div class="container">
-
-<h1>LAPORAN OBJECT ORIENTED PROGRAMMING (OOP)</h1>
-<p><b>Nama:</b> Esti Anggraini</p>
-<p><b>NIM:</b> 251410031</p>
-  <p><b>kelas:</b> si2a</p>
-
-<div class="card">
-<p>
-Object Oriented Programming (OOP) merupakan pendekatan desain sistem yang meniru cara manusia memahami dunia nyata dengan merepresentasikan entitas sebagai objek yang memiliki karakteristik dan perilaku, sehingga program menjadi lebih intuitif dan terstruktur; OOP meningkatkan modularitas melalui pembagian program ke dalam class yang terorganisir, mendukung reusability agar kode dapat digunakan kembali, serta memiliki empat pilar utama yaitu Encapsulation, Abstraction, Inheritance, dan Polymorphism yang membuat sistem lebih fleksibel, aman, scalable, maintainable, dan robust, serta menjadi fondasi penting dalam pengembangan aplikasi modern seperti Flutter berbasis Dart.
-</p>
-</div>
-
-<hr>
-
-<h2>1. Class & Object (Car)</h2>
-<div class="card">
-<p>
-Dalam konteks OOP, <b>class</b> berfungsi sebagai representasi abstrak dari suatu entitas di dunia nyata. 
-Class tidak hanya menyimpan data, tetapi juga mendefinisikan bagaimana data tersebut diproses melalui method. 
-Dengan kata lain, class menggabungkan data dan fungsi dalam satu kesatuan yang utuh.
-</p>
-
-<p>
-Sedangkan <b>object</b> merupakan implementasi nyata dari class. 
-Ketika sebuah object dibuat, memori dialokasikan untuk menyimpan nilai attribute yang dimilikinya. 
-Setiap object memiliki state yang bisa berbeda meskipun berasal dari class yang sama. 
-Hal ini memungkinkan fleksibilitas dalam pemodelan sistem.
-</p>
-
-<p>
-Pada contoh class <i>Car</i>, attribute seperti <i>model</i> dan <i>color</i> merepresentasikan karakteristik mobil, 
-sementara method <i>start()</i> dan <i>stop()</i> menggambarkan perilaku dasar mobil tersebut. 
-Pendekatan ini membuat struktur program lebih modular dan mudah dikembangkan.
-</p>
-  <div class="card">
-    <pre>
+    <div class="container">
+        <h1>LAPORAN OBJECT ORIENTED PROGRAMMING (OOP)</h1>
+        <p><b>Nama:</b> Esti Anggraini</p>
+        <p><b>NIM:</b> 251410031</p>
+        <p><b>Kelas:</b> SI2A</p>
+        
+        <div class="card">
+            <p>Object Oriented Programming (OOP) merupakan pendekatan desain sistem yang meniru cara manusia memahami dunia nyata dengan merepresentasikan entitas sebagai objek yang memiliki karakteristik dan perilaku, sehingga program menjadi lebih intuitif dan terstruktur; OOP meningkatkan modularitas melalui pembagian program ke dalam class yang terorganisir, mendukung reusability agar kode dapat digunakan kembali, serta memiliki empat pilar utama yaitu Encapsulation, Abstraction, Inheritance, dan Polymorphism yang membuat sistem lebih fleksibel, aman, scalable, maintainable, dan robust, serta menjadi fondasi penting dalam pengembangan aplikasi modern seperti Flutter berbasis Dart.</p>
+        </div>
+        
+        <hr>
+        
+        <!-- 1. Class & Object -->
+        <h2>1. Class & Object (Car)</h2>
+        <div class="card">
+            <p>Dalam konteks OOP, <b>class</b> berfungsi sebagai representasi abstrak dari suatu entitas di dunia nyata. Class tidak hanya menyimpan data, tetapi juga mendefinisikan bagaimana data tersebut diproses melalui method. Dengan kata lain, class menggabungkan data dan fungsi dalam satu kesatuan yang utuh.</p>
+            <p>Sedangkan <b>object</b> merupakan implementasi nyata dari class. Ketika sebuah object dibuat, memori dialokasikan untuk menyimpan nilai attribute yang dimilikinya. Setiap object memiliki state yang bisa berbeda meskipun berasal dari class yang sama. Hal ini memungkinkan fleksibilitas dalam pemodelan sistem.</p>
+            <p>Pada contoh class <i>Car</i>, attribute seperti <i>model</i> dan <i>color</i> merepresentasikan karakteristik mobil, sementara method <i>start()</i> dan <i>stop()</i> menggambarkan perilaku dasar mobil tersebut. Pendekatan ini membuat struktur program lebih modular dan mudah dikembangkan.</p>
+            
+            <div class="card">
+                <pre>
 // Nama   : Esti Anggraini 
 // Nim    : 251410031
 // Kelas  : Si2A
       
-  class Car {
-  String? model;
-  String? color;
+class Car {
+    String? model;
+    String? color;
 
-  void start() {
-    print('Car started!');
-  }
+    void start() {
+        print('Car started!');
+    }
 
-  void stop() {
-    print('Car stopped!');
-  }
+    void stop() {
+        print('Car stopped!');
+    }
 }
 
 void main() {
-  Car myCar = Car();
-  myCar.model = "Sedan";
-  myCar.color = "Merah";
+    Car myCar = Car();
+    myCar.model = "Sedan";
+    myCar.color = "Merah";
 
-  myCar.start();
-  myCar.stop();
+    myCar.start();
+    myCar.stop();
 }
-    </pre>
-  </div>
-<button class="btn" onclick="openModal('d895eee10aebbd50d945203b6e12a999')">
-Lihat Kode
-</button>
-</div>
-
-<h2>2. Constructor</h2>
-<div class="card">
-<p>
-Constructor adalah metode inisialisasi yang dipanggil secara otomatis saat objek baru diciptakan dalam memori sistem. Di Dart, kita bisa menggunakan formal parameters (this.attribute) untuk menyederhanakan proses pengisian nilai attribute.
-Constructor</b> merupakan metode khusus yang dipanggil secara otomatis saat objek dibuat. 
-Constructor berfungsi untuk melakukan inisialisasi nilai awal attribute sehingga objek langsung berada dalam kondisi valid dan siap digunakan. 
-Dalam bahasa Dart, constructor dapat menggunakan formal parameter (<i>this.attribute</i>) untuk menyederhanakan penulisan kode.
-</p>
-  <div class="card">
-    <pre>
+                </pre>
+            </div>
+            <button class="btn" onclick="openModal('d895eee10aebbd50d945203b6e12a999')">Lihat Kode</button>
+        </div>
+        
+        <!-- 2. Constructor -->
+        <h2>2. Constructor</h2>
+        <div class="card">
+            <p>Constructor adalah metode inisialisasi yang dipanggil secara otomatis saat objek baru diciptakan dalam memori sistem. Di Dart, kita bisa menggunakan formal parameters (this.attribute) untuk menyederhanakan proses pengisian nilai attribute. Constructor merupakan metode khusus yang dipanggil secara otomatis saat objek dibuat. Constructor berfungsi untuk melakukan inisialisasi nilai awal attribute sehingga objek langsung berada dalam kondisi valid dan siap digunakan. Dalam bahasa Dart, constructor dapat menggunakan formal parameter (<i>this.attribute</i>) untuk menyederhanakan penulisan kode.</p>
+            
+            <div class="card">
+                <pre>
 // Nama   : Esti Anggraini 
 // Nim    : 251410031
 // Kelas  : Si2A
       
-  class Car {
-  String? model;
-  String? color;
+class Car {
+    String? model;
+    String? color;
 
-  Car(this.model, this.color);
+    Car(this.model, this.color);
 
-  void start() {
-    print('Car started!');
-  }
+    void start() {
+        print('Car started!');
+    }
 }
-    </pre>
-  </div>
-<button class="btn" onclick="openModal('c643bd946a0cb132d2b9c2ff04ff2dea')">
-Lihat Kode
-</button>
-</div>
-
-<h2>3. Validasi Constructor (Mahasiswa)</h2>
-  <div class="card">
-  <p><p>
-Validasi pada constructor merupakan teknik untuk memastikan bahwa data yang diberikan saat pembuatan object berada dalam kondisi yang benar (valid). 
-Tanpa validasi, object berpotensi memiliki nilai yang tidak logis atau berada di luar batas yang diperbolehkan.
-</p>
-
-<p>
-Dalam contoh class <i>Mahasiswa</i>, validasi dilakukan terhadap nilai IPK agar tetap berada dalam rentang 0.0 hingga 4.0. 
-Jika nilai yang dimasukkan berada di luar batas tersebut, sistem dapat memberikan peringatan atau menolak pembuatan object. 
-Hal ini bertujuan menjaga konsistensi dan integritas data akademik.
-</p>
-
-<p>
-Dengan menerapkan validasi pada constructor, kita memastikan bahwa setiap object yang dibuat sudah memenuhi aturan bisnis (business rule) sejak awal. 
-Pendekatan ini mengurangi kemungkinan terjadinya error pada proses eksekusi program di tahap berikutnya.
-</p> </p>
-    <div class="card">
-      <pre>
+                </pre>
+            </div>
+            <button class="btn" onclick="openModal('c643bd946a0cb132d2b9c2ff04ff2dea')">Lihat Kode</button>
+        </div>
+        
+        <!-- 3. Validasi Constructor -->
+        <h2>3. Validasi Constructor (Mahasiswa)</h2>
+        <div class="card">
+            <p>Validasi pada constructor merupakan teknik untuk memastikan bahwa data yang diberikan saat pembuatan object berada dalam kondisi yang benar (valid). Tanpa validasi, object berpotensi memiliki nilai yang tidak logis atau berada di luar batas yang diperbolehkan.</p>
+            <p>Dalam contoh class <i>Mahasiswa</i>, validasi dilakukan terhadap nilai IPK agar tetap berada dalam rentang 0.0 hingga 4.0. Jika nilai yang dimasukkan berada di luar batas tersebut, sistem dapat memberikan peringatan atau menolak pembuatan object. Hal ini bertujuan menjaga konsistensi dan integritas data akademik.</p>
+            <p>Dengan menerapkan validasi pada constructor, kita memastikan bahwa setiap object yang dibuat sudah memenuhi aturan bisnis (business rule) sejak awal. Pendekatan ini mengurangi kemungkinan terjadinya error pada proses eksekusi program di tahap berikutnya.</p>
+            
+            <div class="card">
+                <pre>
 // Nama   : Esti Anggraini 
 // Nim    : 251410031
 // Kelas  : Si2A
         
-  class Mahasiswa {
-  String nama;
-  String nim;
-  double ipk;
+class Mahasiswa {
+    String nama;
+    String nim;
+    double ipk;
 
-  Mahasiswa(this.nama, this.nim, this.ipk) {
-  if (ipk < 0.0 || ipk > 4.0) {
-  throw ArgumentError('IPK harus berada dalam rentang 0.0 - 4.0');
+    Mahasiswa(this.nama, this.nim, this.ipk) {
+        if (ipk < 0.0 || ipk > 4.0) {
+            throw ArgumentError('IPK harus berada dalam rentang 0.0 - 4.0');
+        }
     }
-  }
 }
-      </pre>
+                </pre>
+            </div>
+            <button class="btn" onclick="openModal('e4a3bca58621dd594f6a47ebeaad3708')">Lihat Kode</button>
+        </div>
+        
+        <!-- 4. Encapsulation -->
+        <h2>4. Encapsulation (Person)</h2>
+        <div class="card">
+            <p>Encapsulation adalah teknik untuk menyembunyikan detail implementasi internal. Di Dart, kita menggunakan awalan underscore (_) untuk membuat attribute bersifat private, sehingga hanya bisa diakses melalui getter dan setter. prinsip fundamental dalam OOP yang bertujuan melindungi data internal objek dari akses langsung yang tidak sah. Dengan membatasi akses melalui mekanisme getter dan setter, integritas data dapat dijaga dan kesalahan manipulasi dapat diminimalisir. Encapsulation meningkatkan keamanan serta stabilitas sistem dalam skala besar.</p>
+            
+            <div class="card">
+                <pre>
+// Nama   : Esti Anggraini 
+// Nim    : 251410031
+// Kelas  : Si2A
+      
+class Person {
+    String _name;
+    int age;
+
+    Person(this._name, this.age);
+
+    void setName(String name) {
+        _name = name;
+    }
+
+    String getName() {
+        return _name;
+    }
+}
+                </pre>
+            </div>
+            <button class="btn" onclick="openModal('3faaa8a620bf28262ac5157a1c402ee4')">Lihat Kode</button>
+        </div>
+        
+        <!-- 5. Named Parameter -->
+        <h2>5. Named Parameter (Produk)</h2>
+        <div class="card">
+            <p>Latihan lanjutan menggunakan Named Parameters dan operator required. Teknik ini membuat pembuatan objek menjadi lebih deskriptif dan aman karena compiler akan memberikan peringatan jika data wajib tidak diisi. Selain itu, Dart juga mendukung penggunaan <b>Named Parameter</b>, yaitu teknik pengisian parameter berdasarkan nama variabel. Penggunaan keyword <b>required</b> memastikan bahwa parameter penting tidak boleh kosong saat proses instansiasi objek dilakukan. Pendekatan ini meningkatkan kejelasan kode (readability) dan mengurangi potensi kesalahan input.</p>
+            
+            <div class="card">
+                <pre>
+// Nama   : Esti Anggraini 
+// Nim    : 251410031
+// Kelas  : Si2A
+      
+class Produk {
+    final String id;
+    final String nama;
+    final double harga;
+    final int stok;
+    final String kategori;
+
+    Produk({
+        required this.id,
+        required this.nama,
+        required this.harga,
+        this.stok = 0,
+        this.kategori = 'Umum',
+    });
+}
+                </pre>
+            </div>
+            <button class="btn" onclick="openModal('3fec650a8cd7c8e423ab48107c074e43')">Lihat Kode</button>
+        </div>
+        
+        <!-- Kesimpulan -->
+        <footer>
+            <h2>Kesimpulan</h2>
+            <div class="card">
+                <p>Secara keseluruhan, Object Oriented Programming (OOP) merupakan paradigma yang efektif untuk membangun sistem yang terstruktur dan modular. Melalui konsep class, object, constructor, validasi, dan encapsulation, program menjadi lebih aman, jelas, mudah dikembangkan, serta lebih terjaga dalam jangka panjang, terutama dalam pengembangan aplikasi menggunakan Dart dan Flutter.</p>
+            </div>
+        </footer>
     </div>
-<button class="btn" onclick="openModal('e4a3bca58621dd594f6a47ebeaad3708')">
-  Lihat Kode
-</div>
-
-<h2>4. Encapsulation (Person)</h2>
-<div class="card">
-<p>
-Encapsulation adalah teknik untuk menyembunyikan detail implementasi internal. Di Dart, kita menggunakan awalan underscore (_) untuk membuat attribute bersifat private, sehingga hanya bisa diakses melalui getter dan setter. prinsip fundamental dalam OOP yang bertujuan melindungi data internal objek dari akses langsung yang tidak sah. 
-Dengan membatasi akses melalui mekanisme getter dan setter, integritas data dapat dijaga dan kesalahan manipulasi dapat diminimalisir. 
-Encapsulation meningkatkan keamanan serta stabilitas sistem dalam skala besar.
-</p>
-  <div class="card">
-    <pre>
-// Nama   : Esti Anggraini 
-// Nim    : 251410031
-// Kelas  : Si2A
-      
-  class Person {
-  String _name;
-  int age;
-
-  Person(this._name, this.age);
-
-  void setName(String name) {
-    _name = name;
-  }
-
-  String getName() {
-    return _name;
-  }
-}
-    </pre>
-  </div>
-<button class="btn" onclick="openModal('3faaa8a620bf28262ac5157a1c402ee4')">
-  Lihat Kode
-</div>
-
-<h2>5. Named Parameter (Produk)</h2>
-<div class="card">
-<p>
-Latihan lanjutan menggunakan Named Parameters dan operator required. Teknik ini membuat pembuatan objek menjadi lebih deskriptif dan aman karena compiler akan memberikan peringatan jika data wajib tidak diisi.
-Selain itu, Dart juga mendukung penggunaan <b>Named Parameter</b>, yaitu teknik pengisian parameter berdasarkan nama variabel. 
-Penggunaan keyword <b>required</b> memastikan bahwa parameter penting tidak boleh kosong saat proses instansiasi objek dilakukan. 
-Pendekatan ini meningkatkan kejelasan kode (readability) dan mengurangi potensi kesalahan input.
-</p>
-  <div class="card">
-    <pre>
-// Nama   : Esti Anggraini 
-// Nim    : 251410031
-// Kelas  : Si2A
-      
-  class Produk {
-  final String id;
-  final String nama;
-  final double harga;
-  final int stok;
-  final String kategori;
-
-  Produk({
-    required this.id,
-    required this.nama,
-    required this.harga,
-    this.stok = 0,
-    this.kategori = 'Umum',
-  });
-}
-    </pre>
-  </div>
-<button class="btn" onclick="openModal('3fec650a8cd7c8e423ab48107c074e43')">
-  Lihat Kode
-</div>
-
-<footer>
-<h2>Kesimpulan</h2>
-<div class="card">
-<p>
-Secara keseluruhan, Object Oriented Programming (OOP) merupakan paradigma yang efektif untuk membangun sistem yang terstruktur dan modular. Melalui konsep class, object, constructor, validasi, dan encapsulation, program menjadi lebih aman, jelas, mudah dikembangkan, serta lebih terjaga dalam jangka panjang, terutama dalam pengembangan aplikasi menggunakan Dart dan Flutter.
-</p>
-</footer>
-
-</div>
-<!-- MODALS -->
-
-<div id="d895eee10aebbd50d945203b6e12a999" class="modal">
-  <div class="modal-content">
-    <span class="close" onclick="closeModal('d895eee10aebbd50d945203b6e12a999')">&times;</span>
-    <iframe src="https://dartpad.dev/?id=d895eee10aebbd50d945203b6e12a999&null_safety=true"></iframe>
-  </div>
-</div>
-
-<div id="c643bd946a0cb132d2b9c2ff04ff2dea" class="modal">
-  <div class="modal-content">
-    <span class="close" onclick="closeModal('c643bd946a0cb132d2b9c2ff04ff2dea')">&times;</span>
-    <iframe src="https://dartpad.dev/?id=c643bd946a0cb132d2b9c2ff04ff2dea&null_safety=true"></iframe>
-  </div>
-</div>
-
-<div id="e4a3bca58621dd594f6a47ebeaad3708" class="modal">
-  <div class="modal-content">
-    <span class="close" onclick="closeModal('e4a3bca58621dd594f6a47ebeaad3708')">&times;</span>
-    <iframe src="https://dartpad.dev/?id=e4a3bca58621dd594f6a47ebeaad3708&null_safety=true"></iframe>
-  </div>
-</div>
-
-<div id="3faaa8a620bf28262ac5157a1c402ee4" class="modal">
-  <div class="modal-content">
-    <span class="close" onclick="closeModal('3faaa8a620bf28262ac5157a1c402ee4')">&times;</span>
-    <iframe src="https://dartpad.dev/?id=3faaa8a620bf28262ac5157a1c402ee4&null_safety=true"></iframe>
-  </div>
-</div>
-
-<div id="3fec650a8cd7c8e423ab48107c074e43" class="modal">
-  <div class="modal-content">
-    <span class="close" onclick="closeModal('3fec650a8cd7c8e423ab48107c074e43')">&times;</span>
-    <iframe src="https://dartpad.dev/?id=3fec650a8cd7c8e423ab48107c074e43&null_safety=true"></iframe>
-  </div>
-</div>
-
-<script>
-function openModal(id){
-  document.getElementById(id).style.display = "block";
-}
-
-function closeModal(id){
-  document.getElementById(id).style.display = "none";
-}
-
-window.onclick = function(event){
-  const modals = document.getElementsByClassName("modal");
-  for(let i=0; i<modals.length; i++){
-    if(event.target == modals[i]){
-      modals[i].style.display = "none";
-    }
-  }
-}
-</script>
-  
+    
+    <!-- MODALS -->
+    <div id="d895eee10aebbd50d945203b6e12a999" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('d895eee10aebbd50d945203b6e12a999')">&times;</span>
+            <iframe src="https://dartpad.dev/?id=d895eee10aebbd50d945203b6e12a999&null_safety=true"></iframe>
+        </div>
+    </div>
+    
+    <div id="c643bd946a0cb132d2b9c2ff04ff2dea" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('c643bd946a0cb132d2b9c2ff04ff2dea')">&times;</span>
+            <iframe src="https://dartpad.dev/?id=c643bd946a0cb132d2b9c2ff04ff2dea&null_safety=true"></iframe>
+        </div>
+    </div>
+    
+    <div id="e4a3bca58621dd594f6a47ebeaad3708" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('e4a3bca58621dd594f6a47ebeaad3708')">&times;</span>
+            <iframe src="https://dartpad.dev/?id=e4a3bca58621dd594f6a47ebeaad3708&null_safety=true"></iframe>
+        </div>
+    </div>
+    
+    <div id="3faaa8a620bf28262ac5157a1c402ee4" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('3faaa8a620bf28262ac5157a1c402ee4')">&times;</span>
+            <iframe src="https://dartpad.dev/?id=3faaa8a620bf28262ac5157a1c402ee4&null_safety=true"></iframe>
+        </div>
+    </div>
+    
+    <div id="3fec650a8cd7c8e423ab48107c074e43" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('3fec650a8cd7c8e423ab48107c074e43')">&times;</span>
+            <iframe src="https://dartpad.dev/?id=3fec650a8cd7c8e423ab48107c074e43&null_safety=true"></iframe>
+        </div>
+    </div>
+    
+    <script>
+        function openModal(id) {
+            document.getElementById(id).style.display = "block";
+        }
+        
+        function closeModal(id) {
+            document.getElementById(id).style.display = "none";
+        }
+        
+        window.onclick = function(event) {
+            const modals = document.getElementsByClassName("modal");
+            for(let i = 0; i < modals.length; i++) {
+                if(event.target == modals[i]) {
+                    modals[i].style.display = "none";
+                }
+            }
+        }
+    </script>
 </body>
 </html>
