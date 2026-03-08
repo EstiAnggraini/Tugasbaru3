@@ -162,25 +162,25 @@
 // Kelas  : Si2A
       
 class Car {
-    String? model;
-    String? color;
-
-    void start() {
-        print('Car started!');
-    }
-
-    void stop() {
-        print('Car stopped!');
-    }
+  String? model; 
+  String? color; 
+  
+  void start() {
+    print('Car started!'); 
+  }
+ 
+  void stop() {
+    print('Car stopped!');
+  }
 }
 
 void main() {
-    Car myCar = Car();
-    myCar.model = "Sedan";
-    myCar.color = "Merah";
-
-    myCar.start();
-    myCar.stop();
+  Car myCar = Car();
+ 
+  myCar.model = "ferari"; 
+  myCar.color = "black"; 
+  myCar.start(); 
+  myCar.stop(); 
 }
                 </pre>
             </div>
@@ -199,14 +199,20 @@ void main() {
 // Kelas  : Si2A
       
 class Car {
-    String? model;
-    String? color;
+  String model; 
+  String color; 
 
-    Car(this.model, this.color);
+  Car(this.model, this.color);
 
-    void start() {
-        print('Car started!');
-    }
+  void start() {
+    print('Engine Online: $model'); 
+  }
+}
+
+void main() {
+  Car myCar = Car("ferari", "black");
+  myCar.start(); 
+  print(myCar.color); 
 }
                 </pre>
             </div>
